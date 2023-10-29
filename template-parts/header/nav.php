@@ -2,7 +2,7 @@
 /**
  * Header Navigation template
  * 
- * @package wp-generic-template
+ * @package Aquila
  */
 ?>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">

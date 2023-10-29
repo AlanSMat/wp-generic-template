@@ -2,7 +2,7 @@
 /**
  * Theme Functions
  * 
- * 
+ * @package Aquila
  */
 
 define('ASSETS_URI', get_template_directory_uri() . '/assets');
@@ -10,7 +10,14 @@ define('ASSETS_LIBRARY_URI', get_template_directory_uri() . '/assets/src/library
 define('ASSETS_LIBRARY_CSS_URI', get_template_directory_uri() . '/assets/src/library/css');
 define('ASSETS_LIBRARY_JS_URI', get_template_directory_uri() . '/assets/src/library/js');
 
-function asm_enqueue_scripts() 
+if( ! defined( 'AQUILA_DIR_PATH' )) 
+{
+    define( 'AQUILA_DIR_PATH', untrailingslashit( get_template_directory() ) );
+}
+
+require_once AQUILA_DIR_PATH . '/inc/helpers/autoloader.php';
+
+function aquila_enqueue_scripts() 
 {
     //wp_enqueue_style( 'main-css', get_template_directory_uri() . '/main-css', ['stylesheet'] );
     wp_register_style( 'style', get_stylesheet_uri(), [], filemtime( get_template_directory() . '/style.css' ), 'all' );
@@ -28,4 +35,10 @@ function asm_enqueue_scripts()
 }
 
 
-add_action( 'wp_enqueue_scripts', 'asm_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'aquila_enqueue_scripts' );
+
+function aquila_get_theme_instance() {
+	\AQUILA_THEME\Inc\AQUILA_THEME::get_instance();
+}
+
+aquila_get_theme_instance();
