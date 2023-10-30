@@ -5,37 +5,57 @@
  * @package Aquila
  */
 
-define('ASSETS_URI', get_template_directory_uri() . '/assets');
-define('ASSETS_LIBRARY_URI', get_template_directory_uri() . '/assets/src/library');
-define('ASSETS_LIBRARY_CSS_URI', get_template_directory_uri() . '/assets/src/library/css');
-define('ASSETS_LIBRARY_JS_URI', get_template_directory_uri() . '/assets/src/library/js');
-
-if( ! defined( 'AQUILA_DIR_PATH' )) 
-{
-    define( 'AQUILA_DIR_PATH', untrailingslashit( get_template_directory() ) );
+ if ( ! defined( 'AQUILA_DIR_PATH' ) ) {
+	define( 'AQUILA_DIR_PATH', untrailingslashit( get_template_directory() ) );
 }
+
+if ( ! defined( 'AQUILA_DIR_URI' ) ) {
+	define( 'AQUILA_DIR_URI', untrailingslashit( get_template_directory_uri() ) );
+}
+
+if ( ! defined( 'AQUILA_BUILD_URI' ) ) {
+	define( 'AQUILA_BUILD_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_PATH' ) ) {
+	define( 'AQUILA_BUILD_PATH', untrailingslashit( get_template_directory() ) . '/assets/build' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_JS_URI' ) ) {
+	define( 'AQUILA_BUILD_JS_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build/js' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_JS_DIR_PATH' ) ) {
+	define( 'AQUILA_BUILD_JS_DIR_PATH', untrailingslashit( get_template_directory() ) . '/assets/build/js' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_IMG_URI' ) ) {
+	define( 'AQUILA_BUILD_IMG_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build/src/img' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_CSS_URI' ) ) {
+	define( 'AQUILA_BUILD_CSS_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build/css' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_CSS_DIR_PATH' ) ) {
+	define( 'AQUILA_BUILD_CSS_DIR_PATH', untrailingslashit( get_template_directory() ) . '/assets/build/css' );
+}
+
+if ( ! defined( 'AQUILA_BUILD_LIB_URI' ) ) {
+	define( 'AQUILA_BUILD_LIB_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build/library' );
+}
+
+if ( ! defined( 'AQUILA_ARCHIVE_POST_PER_PAGE' ) ) {
+	define( 'AQUILA_ARCHIVE_POST_PER_PAGE', 9 );
+}
+
+if ( ! defined( 'AQUILA_SEARCH_RESULTS_POST_PER_PAGE' ) ) {
+	define( 'AQUILA_SEARCH_RESULTS_POST_PER_PAGE', 9 );
+}
+
+
 
 require_once AQUILA_DIR_PATH . '/inc/helpers/autoloader.php';
-
-function aquila_enqueue_scripts() 
-{
-    //wp_enqueue_style( 'main-css', get_template_directory_uri() . '/main-css', ['stylesheet'] );
-    wp_register_style( 'style', get_stylesheet_uri(), [], filemtime( get_template_directory() . '/style.css' ), 'all' );
-    wp_register_script( 'main', get_template_directory_uri() . '/assets/src/js/main.js', [], filemtime( get_template_directory() . '/assets/src/js/main.js' ), true );
-
-    //
-    wp_register_style( 'bootstrap', ASSETS_LIBRARY_CSS_URI . '/bootstrap.min.css', [] );
-    wp_register_script( 'bootstrap', ASSETS_LIBRARY_JS_URI . '/bootstrap.min.js', [ 'jquery' ], false, 'all' );
-    
-    wp_enqueue_style( 'style');
-    wp_enqueue_script( 'main');
-
-    wp_enqueue_style( 'bootstrap' );
-    wp_enqueue_script( 'bootstrap' );
-}
-
-
-add_action( 'wp_enqueue_scripts', 'aquila_enqueue_scripts' );
 
 function aquila_get_theme_instance() {
 	\AQUILA_THEME\Inc\AQUILA_THEME::get_instance();

@@ -14,7 +14,7 @@ class AQUILA_THEME {
 
 	protected function __construct() {
 		// Load class.		
-		// Assets::get_instance();
+		Assets::get_instance();
 		// Menus::get_instance();
 		// Meta_Boxes::get_instance();
 		// Sidebars::get_instance();
@@ -25,8 +25,7 @@ class AQUILA_THEME {
 		// Register_Post_Types::get_instance();
 		// Register_Taxonomies::get_instance();
 		// Archive_Settings::get_instance();
-
-		// $this->setup_hooks();
+		$this->setup_hooks();
 	}
 
 	protected function setup_hooks() {
@@ -34,7 +33,7 @@ class AQUILA_THEME {
 		/**
 		 * Actions.
 		 */
-		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
+		//add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
 
 	}
 
