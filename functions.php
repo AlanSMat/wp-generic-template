@@ -53,8 +53,6 @@ if ( ! defined( 'AQUILA_SEARCH_RESULTS_POST_PER_PAGE' ) ) {
 	define( 'AQUILA_SEARCH_RESULTS_POST_PER_PAGE', 9 );
 }
 
-
-
 require_once AQUILA_DIR_PATH . '/inc/helpers/autoloader.php';
 
 function aquila_get_theme_instance() {

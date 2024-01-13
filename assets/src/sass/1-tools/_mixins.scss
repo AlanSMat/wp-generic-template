@@ -32,10 +32,10 @@
 			@each $device, $values in $size {
 
 				@if $device != "small" {
-					@include mq($from: $device) {
-						font-size: map_get($values, "font-size");
-						line-height: map_get($values, "line-height");
-					}
+					// @include mq($from: $device) {
+					// 	font-size: map_get($values, "font-size");
+					// 	line-height: map_get($values, "line-height");
+					// }
 				} @else {
 					font-size: map_get($values, "font-size");
 					line-height: map_get($values, "line-height");

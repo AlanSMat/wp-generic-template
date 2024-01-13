@@ -69,7 +69,6 @@ function autoloader( $resource = '' ) {
 		}
 
 		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( AQUILA_DIR_PATH ), $directory, $file_name );
-
 	}
 
 	/**
